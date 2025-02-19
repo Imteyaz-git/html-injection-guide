@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Injection: A Practical Guide</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1>HTML Injection: A Practical Guide</h1>
+    <p>By Imteyaz Ali | Cybersecurity Enthusiast</p>
+  </header>
+
+  <!-- Table of Contents -->
+  <section class="section toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#what-is-html-injection">What is HTML Injection?</a></li>
+      <li><a href="#tools-used">Tools Used</a></li>
+      <li><a href="#methodology">Methodology</a></li>
+      <li><a href="#examples">Examples</a></li>
+      <li><a href="#mitigation">Mitigation Strategies</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section" id="introduction">
+    <h2>Introduction</h2>
+    <p>This document explores HTML injection vulnerabilities, their impact, and how to mitigate them. HTML injection occurs when an attacker injects malicious HTML or JavaScript into a web application. This can lead to defacement, data theft, or phishing attacks. Understanding this vulnerability is critical for securing modern web applications.</p>
+  </section>
+
+  <!-- What is HTML Injection? -->
+  <section class="section" id="what-is-html-injection">
+    <h2>What is HTML Injection?</h2>
+    <p>HTML Injection is a type of security vulnerability where an attacker injects malicious HTML or JavaScript code into a web application. The injected code can alter the behavior or appearance of the application, potentially leading to harmful consequences. There are three main types of HTML injection:</p>
+    <ul>
+      <li><strong>Stored Injection</strong>: Malicious payloads are stored in the application's database and executed whenever the affected page is accessed. For example, a comment section that allows raw HTML input could store and display malicious scripts.</li>
+      <li><strong>Reflected Injection</strong>: Payloads are reflected back in server responses without being stored. These attacks often rely on tricking users into clicking malicious links.</li>
+      <li><strong>DOM-Based Injection</strong>: Vulnerabilities arise from client-side scripts manipulating the Document Object Model (DOM) in an insecure way. The payload is executed directly in the user's browser.</li>
+    </ul>
+  </section>
+
+  <!-- Tools Used -->
+  <section class="section" id="tools-used">
+    <h2>Tools Used</h2>
+    <p>The following tools were used to demonstrate HTML injection vulnerabilities:</p>
+    <ul>
+      <li><strong>Burp Suite</strong>: A powerful tool for intercepting, modifying, and analyzing HTTP/HTTPS traffic. It is widely used for identifying and exploiting vulnerabilities like HTML injection.</li>
+      <li><strong>OWASP Broken Web Applications (BWA)</strong>: A deliberately vulnerable web application designed for learning and practicing security testing techniques.</li>
+    </ul>
+    <p>These tools provide a safe and controlled environment for testing and understanding vulnerabilities like HTML injection.</p>
+  </section>
+
+  <!-- Methodology -->
+  <section class="section" id="methodology">
+    <h2>Methodology</h2>
+    <p>To identify and exploit HTML injection vulnerabilities, follow these steps:</p>
+    <ol>
+      <li><strong>Intercept Requests</strong>: Use Burp Suite's Proxy tab to capture HTTP requests sent by the browser.</li>
+      <li><strong>Modify Payloads</strong>: Inject malicious payloads into vulnerable fields. For example, use <code><script>alert('XSS')</script></code> to test if the application executes JavaScript.</li>
+      <li><strong>Observe Impact</strong>: Check if the injected code alters the application's behavior, such as displaying popups or redirecting users to malicious sites.</li>
+    </ol>
+    <p>This process helps identify potential vulnerabilities and understand their impact on the application.</p>
+  </section>
+
+  <!-- Examples -->
+  <section class="section" id="examples">
+    <h2>Examples</h2>
+    <h3>Example 1: Stored HTML Injection</h3>
+    <p>In this example, a persistent payload was injected into a comment section. The payload was stored in the application's database and executed every time the affected page was loaded. This demonstrates how attackers can use stored injection to deliver malicious scripts to multiple users.</p>
+    <img src="images/stored-injection.png" alt="Stored HTML Injection Example">
+
+    <h3>Example 2: Reflected HTML Injection</h3>
+    <p>In this example, a reflected payload was injected via URL parameters. When users clicked the malicious link, the payload was executed in their browser. This highlights the importance of validating and sanitizing user inputs to prevent reflected injection attacks.</p>
+    <img src="images/reflected-injection.png" alt="Reflected HTML Injection Example">
+  </section>
+
+  <!-- Mitigation Strategies -->
+  <section class="section" id="mitigation">
+    <h2>Mitigation Strategies</h2>
+    <p>To prevent HTML injection vulnerabilities, developers should implement the following strategies:</p>
+    <ul>
+      <li><strong>Input Validation</strong>: Validate all user inputs to ensure they conform to expected formats and do not contain malicious code.</li>
+      <li><strong>Output Encoding</strong>: Encode outputs to neutralize any embedded scripts or HTML tags before rendering them in the browser.</li>
+      <li><strong>Content Security Policy (CSP)</strong>: Implement CSP headers to restrict the execution of unauthorized scripts and reduce the impact of injection attacks.</li>
+    </ul>
+    <p>By adopting these practices, developers can significantly reduce the risk of HTML injection vulnerabilities in their applications.</p>
+  </section>
+
+  <!-- Conclusion -->
+  <section class="section" id="conclusion">
+    <h2>Conclusion</h2>
+    <p>HTML injection is a critical vulnerability that can compromise the security and integrity of web applications. By understanding its causes, impacts, and mitigation strategies, developers and security professionals can better protect their applications from malicious attacks. For more details, check out my GitHub repository: <a href="https://github.com/Imteyaz-git">GitHub Profile</a>.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2023 Imteyaz Ali. All rights reserved.</p>
+  </footer>
+</body>
+</html>
